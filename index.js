@@ -31,4 +31,4 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 //Static file/folder Middleware
-app.use(express.static(path.join(__dirname, 'public'))));
+app.use(express.static(path.join(__dirname, 'public')));
