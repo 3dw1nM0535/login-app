@@ -14,8 +14,8 @@ mongoose.connect('mongodb://localhost/loginapp');
 var db = mongoose.connection;
 
 //Routes configuration
-var routes = require('./Routes/app');
-var users = require('./Routes/users');
+var routes = require('./routes/app');
+var users = require('./routes/users');
 
 //Init App
 var app = express();
@@ -74,7 +74,7 @@ app.use( function(req, res, next) {
 });
 
 //Routes Middleware
-app.use('/', Routes);
+app.use('/', routes);
 app.use('/users', users);
 
 //Port Init
