@@ -24,3 +24,11 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exhb({ defaultLayout: 'layout' }));
 app.set('view engine', 'handlebars');
+
+//BodyParser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+//Static file/folder Middleware
+app.use(express.static(path.join(__dirname, 'public'))));
