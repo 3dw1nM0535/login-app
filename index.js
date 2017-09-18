@@ -39,3 +39,21 @@ app.use( session ({
   saveUninitialized: true,
   resave: true
 }));
+
+//Express Validator
+app.use( expressValidator({
+  errorFormatter: function (param, msg, value) {
+    var namesapce = param.split('.');
+    var root = namespace.shift();
+    var formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param: formParam,
+      msg: msg,
+      value: value
+    };
+  }
+}) );
