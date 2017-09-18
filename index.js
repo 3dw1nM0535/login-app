@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost/loginapp');
 var db = mongoose.connection;
 
 //Routes configuration
-var routes = require('./Routes/index');
+var routes = require('./Routes/app');
 var users = require('./Routes/users');
 
 //Init App
