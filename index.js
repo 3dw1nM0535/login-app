@@ -32,3 +32,10 @@ app.use(cookieParser());
 
 //Static file/folder Middleware
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Express session
+app.use( session ({
+  secret: 'secret',
+  saveUninitialized: true,
+  resave: true
+}));
