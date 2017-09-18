@@ -56,4 +56,7 @@ app.use( expressValidator({
       value: value
     };
   }
-}) );
+}));
+
+//Connect Flash Middleware
+app.use(flash());
