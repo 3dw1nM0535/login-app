@@ -1,8 +1,14 @@
 <h4 class="display-4">Register</h4>
-{{ #if errors }}
-  {{ #each errors }}
-    <div
-{{ /if }}
+{{#if errors}}
+  {{#each errors}}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <p>{{msg}}</p>
+    </div>
+  {{/each}}
+{{/if}}
 <form method="post" action="/users/register">
   <div class="form-group">
     <label>Name</label>
