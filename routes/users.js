@@ -34,7 +34,7 @@ router.post('/register', function (req, res) {
       errors: error
     });
   } else {
-    console.log('NO!');
+    
   }
 
 });
