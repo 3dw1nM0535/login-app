@@ -1,4 +1,8 @@
 <h4 class="display-4">Register</h4>
+{{ #if errors }}
+  {{ #each errors }}
+    <div
+{{ /if }}
 <form method="post" action="/users/register">
   <div class="form-group">
     <label>Name</label>
