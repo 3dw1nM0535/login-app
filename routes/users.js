@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var user = require('../model/model');
 
 //Register
 router.get('/register', function (req, res) {
@@ -34,7 +35,12 @@ router.post('/register', function (req, res) {
       errors: error,
     });
   } else {
-
+    var newUser = new User({
+      name: name,
+      email: email,
+      username: username,
+      password: password
+    });
   }
 
 });
