@@ -63,7 +63,7 @@ passport.serializeUser(function (user, done) {
 
 //Deserialize user
 passport.deserializeUser(function (id, done) {
-  User.getById(id, function (err, user) {
+  User.getUserById(id, function (err, user) {
     done(err, user);
   });
 });
@@ -89,7 +89,7 @@ passport.use(new LocalStrategy(
 ));
 
 //Login Middleware
-app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: 'users/login', failureFlash: true }), function (req, res) {
+router.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: 'users/login', failureFlash: true }), function (req, res) {
   res.redirect('/');
 });
 
