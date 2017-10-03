@@ -39,3 +39,7 @@ module.export.comparePassword = function (candidatePassword, hash, callback) {
     callback(null, isMatch);
   });
 };
+
+module.export.getUserById = function (id, callback) {
+  User.findById(id, callback);
+};
