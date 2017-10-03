@@ -31,12 +31,13 @@ router.post('/register', function (req, res) {
 
   if (error) {
     res.render('register', {
-      errors: error
+      errors: error,
     });
   } else {
-    
+
   }
 
 });
+
 //Module export
 module.exports = router;
