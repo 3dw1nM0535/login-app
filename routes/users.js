@@ -56,6 +56,18 @@ router.post('/register', function (req, res) {
 
 });
 
+//Serialize user
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
+});
+
+//Deserialize user
+passport.deserializeUser(function (id, done) {
+  User.getById(id, function (err, user) {
+    done(err, user);
+  });
+});
+
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.getUserByUsername(username, function (err, user) {
