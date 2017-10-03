@@ -58,15 +58,20 @@ router.post('/register', function (req, res) {
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) { return done(err); }
+    User.getUserByUsername(username, function (err, user) {
+      if (err) throw err;
       if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
+        return done(null, false, { message: 'Unknown user!' });
       }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
+
+      User.comparePassword(password, user.password, function (err, isMatch) {
+        if (err) throw err;
+        if (isMatch) {
+          return done(null, user);
+        } else {
+          return done(null, false, { message: 'Invalid password' });
+        }
+      });
     });
   }
 ));
