@@ -93,5 +93,14 @@ router.post('/login', passport.authenticate('local', { successRedirect: '/', fai
   res.redirect('/');
 });
 
+//Logout Middleware
+router.get('/logout', function (req, res) {
+  req.logout();
+
+  req.flash('success_msg', 'You are logged out!');
+
+  res.redirect('/users/login');
+});
+
 //Module export
 module.exports = router;
