@@ -49,7 +49,7 @@ router.post('/register', function (req, res) {
 
     req.flash('success_msg', 'You are successfully registered. You can now login to your account!');
 
-    req.redirect('/user/login');
+    res.redirect('/users/login');
   }
 
 });
