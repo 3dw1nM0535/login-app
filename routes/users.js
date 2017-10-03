@@ -89,7 +89,7 @@ passport.use(new LocalStrategy(
 ));
 
 //Login Middleware
-router.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: 'users/login', failureFlash: true }), function (req, res) {
+router.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/users/login', failureFlash: true }), function (req, res) {
   res.redirect('/');
 });
 
